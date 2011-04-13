@@ -1,0 +1,8 @@
+Solving the 99 Lisp Problems, which can be found here : 
+  
+http://www.ic.unicamp.br/~meidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html
+
+These are fairly simple problems with clean, idiomatic solutions in most functional languages, including Objective Caml. If you believe you have a simpler approach for one of the problems (or that my code could be cleaner), feel free to propose a commit.
+
+Solutions are found in files numbered based on the problem, so the solution to problem 13 can be found in 11-20/p13.ml
+

@@ -1,15 +1,14 @@
 (* Pack consecutive duplicates of list elements into sublists. *)
 
-let pack list = 
-
-  let rec aux current acc = function
-    | [] -> [] (* Can only be reached if original list is empty *)
-    | [x] -> (x :: current) :: acc
-    | a :: (b :: _ as t) -> if a = b then aux (a :: current) acc t else aux [] ((a :: current) :: acc) t
-  in
-
-  List.rev (aux [] [] list) 
-;;
+let pack l =
+  
+    let rec aux sublist ll = match sublist,ll with
+      | _, [] -> [sublist]
+      | [], h::t -> aux [h] t
+      | x::yy, h::t ->  if x=h then aux (h::(x::yy)) t else (x::yy)::(aux [] (h::t))
+    in
+    
+    aux [] l
 
 assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = 
     [[`a;`a;`a;`a];[`b];[`c;`c];[`a;`a];[`d;`d];[`e;`e;`e;`e]]) ;;
